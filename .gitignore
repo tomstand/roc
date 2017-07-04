@@ -1,0 +1,23 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+/.gitignore
+/roc-web/roc-web.iml
+/roc-service/roc-service.iml
+/roc-facade/roc-facade.iml
+/roc-common/roc-common.iml
+.gitignore
+.idea/
+roc-common/src/test/
+roc-common/target/
+roc-facade/src/main/resources/
+roc-facade/src/test/
+roc-facade/target/
+roc-service/target/
+roc-web/target/
