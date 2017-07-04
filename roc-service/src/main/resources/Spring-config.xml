@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:context="http://www.springframework.org/schema/context"
+           xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	 http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+	http://code.alibabatech.com/schema/dubbo
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+           default-lazy-init="false">
+    <!-- 引入属性配置文件 -->
+    <bean class="com.roc.common.util.PropertiesUtil">
+		<property name="locations">
+			<list>
+				<value>classpath:config/system.properties</value>
+				<value>classpath:config/jdbc.properties</value>
+			</list>
+		</property>
+		<property name="properties">
+			<props>
+				<!-- dubbo个性化配置(服务名,端口) -->
+				<prop key="dubbo.application.name">roc-service</prop>
+				<prop key="dubbo.protocol.port">18085</prop>
+			</props>
+		</property>
+	</bean>
+    <dubbo:service interface="com.roc.provider.ISysProvider" ref="sysProvider"/>
+    <!-- 扫描注解 -->
+    <context:component-scan base-package="com.roc" />
+    <import resource="spring/dubbo.xml" />
+    <import resource="spring/dataSource.xml" />
+	<import resource="spring/mybatis.xml" />
+
+</beans>
